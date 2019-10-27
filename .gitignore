@@ -1,0 +1,7 @@
+/target
+/allure-report
+*.iml
+*.ipr
+*.iws
+target
+build
