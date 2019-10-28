@@ -19,7 +19,7 @@ object BaseFunc {
         Configuration.browserSize = rb.getString("browser_size")
         Configuration.reportsFolder = "target/reports"
         Configuration.pageLoadStrategy = "none"
-        Configuration.timeout = 6000
+        Configuration.timeout = 15000
         Configuration.browserCapabilities = capabilities
     }
 
