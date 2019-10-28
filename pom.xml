@@ -185,22 +185,23 @@
           <reportVersion>${allure.version}</reportVersion>
         </configuration>
       </plugin>
-      <plugin>
-        <artifactId>exec-maven-plugin</artifactId>
-        <groupId>org.codehaus.mojo</groupId>
-        <version>${maven.exec}</version>
-        <executions>
-          <execution>
-            <phase>test</phase>
-            <goals>
-              <goal>exec</goal>
-            </goals>
-            <configuration>
-              <executable>genrep.${script.exec}</executable>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
+      <!--      Uncomment if need allure history and add -Dscript.exec=bat in maven run-->
+      <!--      <plugin>-->
+      <!--        <artifactId>exec-maven-plugin</artifactId>-->
+      <!--        <groupId>org.codehaus.mojo</groupId>-->
+      <!--        <version>${maven.exec}</version>-->
+      <!--        <executions>-->
+      <!--          <execution>-->
+      <!--            <phase>test</phase>-->
+      <!--            <goals>-->
+      <!--              <goal>exec</goal>-->
+      <!--            </goals>-->
+      <!--            <configuration>-->
+      <!--              <executable>genrep.${script.exec}</executable>-->
+      <!--            </configuration>-->
+      <!--          </execution>-->
+      <!--        </executions>-->
+      <!--      </plugin>-->
     </plugins>
     <filters>
       <filter>src/test/resources/env/config.${env}.properties</filter>

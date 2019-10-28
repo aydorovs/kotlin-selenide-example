@@ -1,8 +1,6 @@
 package util
 
-import com.codeborne.selenide.Condition
 import com.codeborne.selenide.Screenshots.takeScreenShotAsFile
-import com.codeborne.selenide.SelenideElement
 import com.codeborne.selenide.WebDriverRunner
 import com.google.common.io.Files
 import io.qameta.allure.Attachment
@@ -11,9 +9,7 @@ import org.apache.commons.io.FileUtils
 import org.apache.logging.log4j.LogManager
 import java.io.File
 
-class DataHelper {
-
-    private val waitValue: Long = 60000
+object Helper {
 
     @Step("{0}")
     fun step(
@@ -34,35 +30,6 @@ class DataHelper {
             throw e
         }
     }
-
-    @Step("{0}")
-    fun log(
-        log: String
-    ) {
-        val logger = LogManager.getLogger(Thread.currentThread().stackTrace[2].fileName.replace(".kt", "")::class)
-        logger.info("\n\u001B[36m\nLogMessage\n${log.replace(". ", ". \n")} \u001B[0m")
-    }
-
-    @Step("{0}")
-    fun preconditions(
-        title: String,
-        code: () -> Any
-    ) {
-        val logger = LogManager.getLogger(Thread.currentThread().stackTrace[2].fileName.replace(".kt", "")::class)
-        val message = "\nSTART \"$title\"\n"
-        try {
-            logger.info("\u001B[36m\n$message \u001B[0m")
-            code()
-        } catch (e: Throwable) {
-            logger.error("\u001B[33m \nERROR!!!$message \u001B[0m")
-            throw e
-        }
-    }
-
-    @Step("Ждем появление элемента")
-    fun wait(selenideElement: SelenideElement) = selenideElement.waitUntil(
-        Condition.visible, waitValue, 500
-    )
 
     @Attachment(value = "Screenshot", type = "image/png")
     fun screenshot(): ByteArray? {
