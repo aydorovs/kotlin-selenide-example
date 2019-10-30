@@ -25,7 +25,7 @@ object BaseFunc {
 
     fun setUpRemote() {
         Configuration.remote = "http://${rb.getString("host")}:4444/wd/hub"
-        capabilities.browserName = rb.getString("browser")
+        capabilities.browserName = "chrome"
         capabilities.setCapability("enableVNC", true)
         capabilities.setCapability("enableVideo", false)
     }
